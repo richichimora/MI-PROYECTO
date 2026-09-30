@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Captura de Datos</title>
+</head>
+<body>
+
+  <h2>Captura de Datos</h2>
+
+  <form id="formulario" action="https://script.google.com/macros/s/AKfycbwcwy0i4MPBnLofbspiIqwvi9VvtygV3aGzJV4K-Mci3KnGzWgEm5PuE7uU-Fu49hG6iw/exec" method="POST" target="hidden_iframe" onsubmit="enviado()">
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre" name="nombre" required><br><br>
+
+    <label for="CURP">CURP:</label><br>
+    <input type="text" id="CURP" name="CURP" required><br><br>
+
+    <label for="Estatura">Estatura:</label><br>
+    <input type="number" id="Estatura" name="Estatura" required><br><br>
+
+    <label for="Peso">Peso:</label><br>
+    <input type="number" id="Peso" name="Peso" required><br><br>
+
+    <label for="edad">Edad:</label><br>
+    <input type="number" id="edad" name="edad" required min="1" max="120"><br><br>
+
+    <label for="Nacimiento">Nacimiento:</label><br>
+    <input type="text" id="Nacimiento" name="Nacimiento" required><br><br>
+
+    <label for="Alergias">Alergias:</label><br>
+    <input type="text" id="Alergias" name="Alergias" required><br><br>
+
+
+
+    <button type="submit" id="btnEnviar">Enviar</button>
+  </form>
+
+  <p id="estado"></p>
+
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+  <script>
+    function enviado() {
+      document.getElementById('btnEnviar').disabled = true;
+      document.getElementById('estado').textContent = 'Guardando...';
+      
+      setTimeout(function() {
+        document.getElementById('estado').textContent = '¡Registro guardado con éxito!';
+        document.getElementById('formulario').reset();
+        document.getElementById('btnEnviar').disabled = false;
+      }, 1500);
+    }
+  </script>
+
+</body>
+</html>
